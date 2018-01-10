@@ -21,7 +21,8 @@
     "sinon": "~1.7.3"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha",
+    "start": "node server.js"
   },
   "bin": {
     "prerender": "server.js"
