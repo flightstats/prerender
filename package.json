@@ -21,7 +21,8 @@
     "sinon": "^1.17.5"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha",
+    "start": "node server.js"
   },
   "bin": {
     "prerender": "server.js"

@@ -6,6 +6,8 @@ var server = prerender({
     iterations: process.env.PRERENDER_NUM_ITERATIONS
 });
 
+var NODE_ENV = process.env.NODE_ENV;
+var useS3Cache = NODE_ENV && (NODE_ENV === 'production');
 
 server.use(prerender.sendPrerenderHeader());
 // server.use(prerender.basicAuth());
@@ -15,6 +17,6 @@ server.use(prerender.blacklist());
 server.use(prerender.removeScriptTags());
 server.use(prerender.httpHeaders());
 // server.use(prerender.inMemoryHtmlCache());
-// server.use(prerender.s3HtmlCache());
+useS3Cache && server.use(prerender.s3HtmlCache());
 
 server.start();
